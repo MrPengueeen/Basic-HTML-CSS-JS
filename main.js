@@ -7,7 +7,7 @@ window.onload = function() {
    
 }
 
-setInterval(changeNumber, 1000);
+setInterval(changeNumber, 1000); //Comment this line out to show the static value of variable 'value'
 
 function changeNumber(){
     curNum=document.getElementById("number").textContent;
