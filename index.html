@@ -4,8 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-index</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="main.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+
+    <!-- CSS Styling -->
+    <style>
+        html, body {
+    background-color: white;
+    margin: auto;
+    height: 100%;
+}
+
+.parent{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container{
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number{
+    margin: 10px;
+    padding: 0px;
+    color: #187bcd ;
+    font-size: 150px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #bbb,
+		0 2px 0 #999, 
+		0 3px 0 #888, 
+		0 4px 0 #777, 
+		0 5px 0 #666, 
+		0 6px 0 #555, 
+		0 7px 0 #444, 
+		0 8px 0 #333, 
+		0 9px 7px #302314;
+}
+
+.text{
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+    </style>
+
+
+
+
+    <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    <!-- Javascript -->
+    <script>
+        
+window.onload = function() {
+    value = 99999999;
+    fontSize = changeFontSize(value);
+    document.getElementById("number").innerHTML = formatNumber(value);
+    document.getElementById("number").style.fontSize = fontSize.toString() + "px";
+   
+}
+
+setInterval(changeNumber, 1000); //Comment this line out to show the static value of variable 'value'
+
+function changeNumber(){
+    curNum=document.getElementById("number").textContent;
+    value=parseInt(curNum)*10;
+    if(value>99999999){
+        value=20;
+    }
+    console.log(value);
+    document.getElementById("number").innerHTML = value;
+    fontSize = changeFontSize(value);
+    document.getElementById("number").style.fontSize = fontSize.toString() + "px";
+
+}
+
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'); //Formatted number with commas
+}
+
+function changeFontSize(num) {
+    fontSize = 140;
+    while(num != 0) {
+        fontSize -= 11.8;
+        num = Math.floor(num/10);
+        console.log(num); /// Debugging purpose
+    }
+    return fontSize;
+}
+    </script>
+
+
+
 
 </head>
 <body>
